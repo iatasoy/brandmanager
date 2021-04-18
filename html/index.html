@@ -1,0 +1,50 @@
+{% extends "index_layout.html" %}
+{% block body %}
+<section id="one" class="main special">
+    <div class="container">
+        <div class="content">
+            <form method="POST" action="{{WEBSITEOBJ.INDEX_URL}}{{ROUTEOBJ.LOGIN_URL}}">
+                <table class="roundedCorners" style="width: 500px;">
+                    <tr>
+                        <th style="text-align: center">
+                            <a href="{{WEBSITEOBJ.INDEX_URL}}">
+                                <img src="{{WEBSITEOBJ.CDN_URL}}img/home.png" width="30px" height="30px"
+                                    alt="{{LANGUAGEOBJ.HOMEPAGE}}" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th class="ActionName">{{LANGUAGEOBJ.LOGIN}}</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text" id="EmailAddress" placeholder="{{LANGUAGEOBJ.EMAILADDRESS}}"
+                                            name="EmailAddress" value="{{POSTRESULTOBJ.EMAILADDRESS_VALUE}}"
+                                            style="height:50px;"></th>
+                                </tr>
+                                <tr>
+                                    <th><input type="password" id="Password" placeholder="{{LANGUAGEOBJ.PASSWORD}}"
+                                         name="Password"
+                                            value="{{POSTRESULTOBJ.PASSWORD_VALUE}}" style="height:50px;"></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" id="idLog" name="Summit" value="{{LANGUAGEOBJ.LOGIN}}">
+                                    </td>
+                                </tr>
+                                {% if POSTRESULTOBJ.STATUS == 400 %}
+                                <td>
+                                    {% autoescape false %}
+                                    {{POSTRESULTOBJ.ERROR_MESSAGE}}
+                                    {% endautoescape %}
+                                </td>
+                                {% endif %}
+                            </table>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock body %}

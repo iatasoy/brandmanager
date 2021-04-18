@@ -1,0 +1,46 @@
+{% extends "index_layout.html" %}
+{% block body %}
+<section id="one" class="main special">
+    <div class="container">
+        <div class="content">
+            <table class="roundedCorners" style="width: 500px;">
+                <tr>
+                    <th style="text-align: center">
+                        <a href="{{WEBSITEOBJ.INDEX_URL}}">
+                            <img src="{{WEBSITEOBJ.CDN_URL}}img/home.png" width="30px" height="30px"
+                                alt="{{LANGUAGEOBJ.HOMEPAGE}}" />
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <table class="roundedCorners">
+                            <tr>
+                                <th colspan="3" class="ActionName">{{LANGUAGEOBJ.BRAND_LIST_ACTION}}</th>
+                            </tr>
+                            <tr>
+                                <th><b>{{LANGUAGEOBJ.BRAND_LIST_HEADER_NAME}}</b></th>
+                                <th><b>{{LANGUAGEOBJ.BRAND_LIST_HEADER_EXPIRE_DATE}}</b></th>
+                                <th><b>{{LANGUAGEOBJ.BRAND_LIST_HEADER_BRAND_STATUS}}</b></th>
+                            </tr>
+                            {% for BRANDOBJ in BRAND_LIST %}
+                            <tr>
+                                <td><a href="{{WEBSITEOBJ.INDEX_URL}}{{ROUTEOBJ.SERVICE_BASE_URL}}/{{BRANDOBJ.brand_name}}/{{BRANDOBJ.brandid}}">{{ BRANDOBJ.brand_name }}</td>
+                                <td>{{ BRANDOBJ.brand_expire_date_count }}</td>
+                                <td class="{{BRANDOBJ.brand_status}}">{{ BRANDOBJ.brand_status_detail }}</td>                                                                                
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <form action="{{WEBSITEOBJ.INDEX_URL}}{{ROUTEOBJ.LOGOUT_URL}}">
+                            <input type="submit" id="idLog" name="Summit"  value="{{LANGUAGEOBJ.LOGOUT}}">
+                        </form>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock body %}

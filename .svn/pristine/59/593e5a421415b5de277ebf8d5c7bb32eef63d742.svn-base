@@ -1,0 +1,50 @@
+{% extends "index_layout.html" %}
+{% block body %}
+<section id="one" class="main special">
+    <div class="container">
+        <div class="content">
+            <table class="roundedCorners" style="width: 700px;">
+                <tr>
+                    <th style="text-align: center">
+                        <a href="{{WEBSITEOBJ.INDEX_URL}}">
+                            <img src="{{WEBSITEOBJ.CDN_URL}}img/home.png" width="30px" height="30px"
+                                alt="{{LANGUAGEOBJ.HOMEPAGE}}" />
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <table class="roundedCorners">
+                            <tr>
+                                <th colspan="5" class="ActionName">{{SERVICE_NAME}} {{LANGUAGEOBJ.SERVICE_LIST_ACTION}}</th>
+                            </tr>
+                            <tr>
+                                <th><b>{{LANGUAGEOBJ.SERVICE_LIST_HEADER_SERVICE_VENDOR_TYPE_NAME}}</b></th>
+                                <th><b>{{LANGUAGEOBJ.SERVICE_LIST_HEADER_SERVICE_VENDOR_NAME}}</b></th>
+                                <th><b>{{LANGUAGEOBJ.SERVICE_LIST_HEADER_EXPIRE_DATE_DAY_COUNT}}</b></th>                                
+                                <th><b>{{LANGUAGEOBJ.SERVICE_LIST_HEADER_EXPIRE_DATE}}</b></th>
+                                <th><b>{{LANGUAGEOBJ.SERVICE_LIST_HEADER_SERVICE_STATUS}}</b></th>
+                            </tr>
+                            {% for serviceObj in SERVICE_LIST %}
+                            <tr>
+                                <td>{{ serviceObj.vendor_type_name }}</td>                                
+                                <td>{{ serviceObj.vendor_name }}</td>
+                                <td>{{ serviceObj.vendor_expire_date_day_count }}</td>
+                                <td>{{ serviceObj.vendor_expire_date }}</td>
+                                <td class="{{serviceObj.vendor_status}}">{{ serviceObj.vendor_status_detail }}</td>                                                                                
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <form action="{{WEBSITEOBJ.INDEX_URL}}{{ROUTEOBJ.LOGOUT_URL}}">
+                            <input type="submit" id="idLog" name="Summit"  value="{{LANGUAGEOBJ.LOGOUT}}">
+                        </form>
+                    </th>
+                </tr>                
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock body %}

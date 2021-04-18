@@ -1,0 +1,11 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "faapz/pdo": "^1.11",
+        "davidepastore/slim-validation": "^0.5.1",
+        "slim/twig-view": "^2.5",
+        "rakibtg/sleekdb": "^1.5",
+        "guzzlehttp/guzzle": "^6.3",
+        "andrewdyer/slim3-session-middleware": "^0.1.0"
+    }
+}
