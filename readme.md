@@ -5,7 +5,7 @@ Simple Web application manage and estimate your brand status easly.No database a
 This application written from PHP 7.0 and upper version.Core framework is slim3.
 
 Demo Username and Password
-username : iskenderatasoy@gmail.com
+username : iskenderatasoy at gmail.com
 password : 12345678
 
 # Language 
